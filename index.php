@@ -1,3 +1,7 @@
+<?php
+session_start();//iniciando sessão
+?>
+
 <!DOCTYPE html>
 <html>
     
@@ -18,9 +22,18 @@
                 <div class="column is-4 is-offset-4">
                     <h3 class="title has-text-grey">Sistema de Login</h3>
                     <h3 class="title has-text-grey"><a href="https://youtube.com/canaltioficial" target="_blank">Canal TI</a></h3>
+                    <!--Alerte Login config -->
+                    <?php
+                    if(isset($_SESSION['nao_autenticado'])):
+                    ?>
                     <div class="notification is-danger">
                       <p>ERRO: Usuário ou senha inválidos.</p>
                     </div>
+                    <?php
+                    endif;
+                    unset($_SESSION['nao_autenticado']);
+                    ?>
+                    <!--Alerte Login config -->
                     <div class="box">
                         <form action="login.php" method="POST">
                             <div class="field">

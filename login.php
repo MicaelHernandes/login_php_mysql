@@ -1,8 +1,9 @@
 <?php
+//Arquivo de autenticação de login!
 session_start();
 include('conexao.php');
 
-if(empty($_POST['usuario']) || empty($_POST['senha'])){
+if(empty($_POST['usuario']) || empty($_POST['senha'])){//Se os campos de usuario e senha estiverem vazios sera redirecionado a pagina de logon novamente!
     header('Location: index.php');
     exit();
 }
@@ -21,6 +22,7 @@ if($row == 1){
     header('Location: painel.php');
     exit();
 }else{
+    $_SESSION['nao_autenticado'] = true;
     header('Location: index.php');
     exit();
 }

@@ -1,4 +1,5 @@
 <?php
+//Pagina de painel contentendo informações dos usuario e botão sair
 session_start();
 include('verifica_login.php');
 ?>
